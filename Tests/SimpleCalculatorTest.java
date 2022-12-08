@@ -14,10 +14,15 @@ public class SimpleCalculatorTest {
         int res = calculator.add("6,2");
         assertEquals(8, res);
     }
+
     @Test
     void TestAddingNNumbers(){
         int res = calculator.add("6,2,4,1");
         assertEquals(13, res);
     }
-
+    @Test
+    void TestAddingNNumbersNewLine(){
+        int res = calculator.add("1\n2,3\n5");
+        assertEquals(11, res);
+    }
 }
