@@ -13,4 +13,5 @@ public class SimpleCalculatorTest {
         int res = calculator.add("6,2");
         assertEquals(8, res);
     }
+
 }
