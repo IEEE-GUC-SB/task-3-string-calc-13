@@ -1,6 +1,7 @@
 public class SimpleCalculator {
 
     int add(String numbers){
-        return 0;
+        int res = Character.getNumericValue(numbers.charAt(0)) + Character.getNumericValue(numbers.charAt(2));
+        return res;
     }
 }
