@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class SimpleCalculatorTest {
     SimpleCalculator calculator;
@@ -37,5 +38,11 @@ public class SimpleCalculatorTest {
     @Test
     void TestAddingNNumbersDiffDelimitersNegative() throws Exception {
         Assertions.assertThrows(Exception.class, () -> calculator.add("1,2,-3,5"));
+    }
+
+    @Test
+    void TestAddingNNumbersIgnoreMoreThanThousand() throws Exception {
+        int res = calculator.add("1,2,3000,5");
+        assertEquals(8, res);
     }
 }
