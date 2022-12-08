@@ -29,7 +29,7 @@ public class SimpleCalculatorTest {
 
     @Test
     void TestAddingNNumbersDiffDelimiters(){
-        int res = calculator.add("//;\\n1;2;3;5");
+        int res = calculator.add("//;\n1;2;3;5");
         assertEquals(11, res);
     }
 }
