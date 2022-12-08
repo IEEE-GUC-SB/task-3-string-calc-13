@@ -2,7 +2,8 @@ import java.util.Arrays;
 
 public class SimpleCalculator {
 
-    int add(String numbers){
+    int add(String numbers) throws Exception{
+
         String delimiters = ",\n";
         if (numbers.charAt(0) == '/') {
             delimiters += numbers.charAt(2);
@@ -10,7 +11,7 @@ public class SimpleCalculator {
         }
 
         String[] strArr = numbers.split("[" + delimiters +"]");
-        Object[] intArr = Arrays.stream(strArr).map((x) -> Integer.parseInt(x)).toArray();
+        Object[] intArr = Arrays.stream(strArr).map(Integer::parseInt).toArray();
 
         int res = (int) Arrays.stream(intArr).reduce(0, (x, y) -> (int) x + (int) y);
         return res;

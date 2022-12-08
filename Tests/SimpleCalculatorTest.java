@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.Assert.*;
@@ -10,26 +11,31 @@ public class SimpleCalculatorTest {
     }
 
     @Test
-    void TestAddingTwoNumbers() {
+    void TestAddingTwoNumbers() throws Exception {
         int res = calculator.add("6,2");
         assertEquals(8, res);
     }
 
     @Test
-    void TestAddingNNumbers(){
+    void TestAddingNNumbers() throws Exception {
         int res = calculator.add("6,2,4,1");
         assertEquals(13, res);
     }
 
     @Test
-    void TestAddingNNumbersNewLine(){
+    void TestAddingNNumbersNewLine() throws Exception {
         int res = calculator.add("1\n2,3\n5");
         assertEquals(11, res);
     }
 
     @Test
-    void TestAddingNNumbersDiffDelimiters(){
+    void TestAddingNNumbersDiffDelimiters() throws Exception {
         int res = calculator.add("//;\n1;2;3;5");
         assertEquals(11, res);
+    }
+
+    @Test
+    void TestAddingNNumbersDiffDelimitersNegative() throws Exception {
+        Assertions.assertThrows(Exception.class, () -> calculator.add("1,2,-3,5"));
     }
 }
