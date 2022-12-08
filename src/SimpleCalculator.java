@@ -13,6 +13,11 @@ public class SimpleCalculator {
         String[] strArr = numbers.split("[" + delimiters +"]");
         Object[] intArr = Arrays.stream(strArr).map(Integer::parseInt).toArray();
 
+        for (Object num : intArr) {
+            if ( (int) num < 0)
+                throw new Exception();
+        }
+
         int res = (int) Arrays.stream(intArr).reduce(0, (x, y) -> (int) x + (int) y);
         return res;
     }
