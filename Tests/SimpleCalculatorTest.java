@@ -45,4 +45,10 @@ public class SimpleCalculatorTest {
         int res = calculator.add("1,2,3000,5");
         assertEquals(8, res);
     }
+
+    @Test
+    void TestAddingNNumbersDelimiterNLength() throws Exception {
+        int res = calculator.add("//[*.*]\n1*.*2*.*3");
+        assertEquals(6, res);
+    }
 }
